@@ -8,7 +8,7 @@ use actix_files::Files;
 use crate::controllers::site_handler;
 use crate::services::storage::Storage;
 use crate::services::scheduler::Scheduler;
-use crate::services::scheduler::HttpsCertTask;
+use crate::services::scheduler::https_cert_task::HttpsCertTask;
 
 fn main() {
     //create actix runtime

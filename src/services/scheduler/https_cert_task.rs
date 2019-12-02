@@ -1,6 +1,6 @@
 use ssl_expiration::SslExpiration;
 use chrono::{Utc, Duration};
-use crate::services::scheduler::Task;
+use crate::services::scheduler::{Task, TaskResult};
 use crate::services::storage::Storage;
 
 pub struct HttpsCertTask {
@@ -14,7 +14,7 @@ impl HttpsCertTask {
 }
 
 impl Task for HttpsCertTask {
-    fn run(&self) {
+    fn run(&self) -> TaskResult {
         if let Ok(sites) = self.storage.list_sites() {
             for site in sites {
                 match SslExpiration::from_domain_name(&site.domain) {
@@ -34,5 +34,6 @@ impl Task for HttpsCertTask {
                 }
             }
         }
+        TaskResult::Continue
     }
 }
