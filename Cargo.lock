@@ -1667,7 +1667,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 [[package]]
 name = "ssl-expiration"
 version = "0.1.2"
-source = "git+https://github.com/doggor/ssl-expiration.git?branch=add-hostname-support#3c8dfa83def1e52a80d082ba6848bda2f7ea80f8"
+source = "git+https://github.com/doggor/ssl-expiration.git?branch=add-hostname-support#f23253d447c78f30fa0fccfe6ea243d1391c0199"
 dependencies = [
  "error-chain 0.10.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "foreign-types-shared 0.1.1 (registry+https://github.com/rust-lang/crates.io-index)",
