@@ -1,14 +1,15 @@
 mod controllers;
 mod services;
+mod tasks;
 
 use std::env;
 use actix::prelude::*;
 use actix_web::{App, HttpServer};
 use actix_files::Files;
 use crate::controllers::site_handler;
-use crate::services::storage::Storage;
-use crate::services::scheduler::Scheduler;
-use crate::services::scheduler::https_cert_task::HttpsCertTask;
+use crate::services::Storage;
+use crate::services::Scheduler;
+use crate::tasks::HttpsCertTask;
 
 fn main() {
     //create actix runtime

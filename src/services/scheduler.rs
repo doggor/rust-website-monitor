@@ -5,11 +5,9 @@ use chrono::Utc;
 use std::sync::Arc;
 use std::error::Error;
 
-pub mod https_cert_task;
-
 pub enum TaskResult {
     Continue,
-    Stop,
+    _Stop,
 }
 
 pub trait Task {
@@ -54,7 +52,7 @@ impl Scheduler {
             ctx.run_later(duration, move |this: &mut Self, ctx: &mut Context<Self>| {
                 match task.run() {
                     TaskResult::Continue => this.start_task(ctx, schedule, task.clone()),
-                    TaskResult::Stop => ()
+                    TaskResult::_Stop => ()
                 }
             });
         }
