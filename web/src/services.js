@@ -15,7 +15,7 @@ export async function createSite(domain) {
 export async function updateSite(id, domain, active) {
     const response = await axios.put(`/sites/${id}`, {
         domain,
-        active,
+        active: typeof active === "string" ? (active === "true" ? true : false) : active,
     });
     return response.data;
 }
